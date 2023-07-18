@@ -76,8 +76,14 @@ namespace DesktopContactsApp
             if(selectedContact != null)
             {
                 ContactDetailsWindow contactDetailsWindow = new ContactDetailsWindow(selectedContact);
+                contactDetailsWindow.Closed += ContactDetailsWindow_Closed;
                 contactDetailsWindow.ShowDialog();
             }
+        }
+
+        private void ContactDetailsWindow_Closed(object sender, EventArgs e)
+        {
+            ReadDataBase();
         }
     }
 }

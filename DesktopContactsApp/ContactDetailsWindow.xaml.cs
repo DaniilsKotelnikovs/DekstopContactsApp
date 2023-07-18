@@ -26,11 +26,24 @@ namespace DesktopContactsApp
             InitializeComponent();
 
             _contact = contact;
+            nameTextBox.Text = contact.Name;
+            phoneTextBox.Text = contact.Phone;
+            emailTextBox.Text = contact.Email;
         }
 
         private void ButtonUpdate_Click(object sender, RoutedEventArgs e)
         {
+            _contact.Name = nameTextBox.Text;
+            _contact.Phone = phoneTextBox.Text;
+            _contact.Email = emailTextBox.Text;
 
+            using (SQLiteConnection connection = new SQLiteConnection(App.databasePath))
+            {
+                connection.CreateTable<Contact>();
+                connection.Update(_contact);
+            }
+
+            Close();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)

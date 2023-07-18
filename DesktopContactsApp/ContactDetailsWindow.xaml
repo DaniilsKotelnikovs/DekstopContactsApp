@@ -20,8 +20,8 @@
                     Margin="5,0,5,5"/>
             <Button Content="Delete"
                     Margin="5,0,5,5"
-                    Foreground ="Red"
-                    Background="WhiteSmoke"
+                    Foreground ="WhiteSmoke"
+                    Background="Red"
                     Click ="DeleteButton_Click"/>
         </StackPanel>
     </Grid>
