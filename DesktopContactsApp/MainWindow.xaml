@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DesktopContactsApp"
         xmlns:uc="clr-namespace:DesktopContactsApp.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="455" Width="525">
     <Grid>
         <StackPanel Margin="10">
             <Button Content="New Contact"
@@ -16,7 +16,12 @@
             <ListView x:Name="contactsListView"
                       Margin="0 5 0 0"
                       SelectionChanged="contactsListView_SelectionChanged"
-                      Height="280">
+                      Height="365">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <uc:ContactControl Contact="{Binding}"/>
